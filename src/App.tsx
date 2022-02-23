@@ -1,12 +1,14 @@
+import { ChakraProvider } from '@chakra-ui/react';
 import React from 'react';
 import './App.css';
+import AllTodo from './components/AllTodo';
 
-function App() {
+const App: React.FunctionComponent = () => {
   return (
-    <div>
-      <h1>Hello world</h1>
-    </div>
+    <ChakraProvider>
+      <AllTodo />
+    </ChakraProvider>
   );
-}
+};
 
 export default App;
