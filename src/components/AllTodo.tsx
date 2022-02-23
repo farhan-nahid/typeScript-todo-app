@@ -54,7 +54,11 @@ const AllTodo: React.FunctionComponent = () => {
     }
   }, getLocalItems());
 
-  const reducer = () => {
+  useEffect(() => {
+    localStorage.setItem('todo', JSON.stringify(allTodo));
+  }, [allTodo]);
+
+  const handelAddTodo = useCallback(() => {
     if (todoTextRef.current) {
       if (todoTextRef.current.value === '') {
         swal({
@@ -68,13 +72,7 @@ const AllTodo: React.FunctionComponent = () => {
         todoTextRef.current.value = '';
       }
     }
-  };
-
-  useEffect(() => {
-    localStorage.setItem('todo', JSON.stringify(allTodo));
-  }, [allTodo]);
-
-  const handelAddTodo = useCallback(reducer, []);
+  }, []);
 
   return (
     <Box>
